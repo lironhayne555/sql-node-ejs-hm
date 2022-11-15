@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update</title>
+  </head>
+  <body>
+    <button><a href="/mylist">Back to my List</a></button>
+    <h1>Update Product : <%=data[0][0].products %></h1>
+    <form action="/update/<%=data[0][0].id  %> " method="post">
+      <div>
+        <label for="product"></label>
+        <input
+          type="text"
+          name="product"
+          placeholder="Press Product"
+          value="<%=data[0][0].product %> "
+        />
+      </div>
+      <div>
+        <label for="quntity"></label>
+        <input
+          type="text"
+          name="quntity"
+          placeholder="Press quntity"
+          value="<%=data[0][0].quntity %> "
+        />
+      </div>
+      <div>
+        <label for="type"></label>
+        <select name="type">
+          <% data[1].forEach((item)=>{%>
+          <option value="<%=item.id %>" <%=data[0][0].product_type===item.id ? "selected" :"" %>><%=item.type %></option>
+          <% }) %>
+        </select>
+      </div>
+      <button>update</button>
+    </form>
+  </body>
+</html>

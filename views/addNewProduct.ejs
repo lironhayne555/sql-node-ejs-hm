@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+  </head>
+  <body>
+    <h1>Add To My List:</h1>
+    <button><a href="/mylist">Back to my List</a></button>
+    <form action="/insertProd" method="post">
+      <div>
+        <label for="product"></label>
+        <input type="text" name="product" placeholder="Press Product" />
+      </div>
+      <div>
+        <label for="quntity"></label>
+        <input type="number" name="quntity" placeholder="Press quntity" />
+      </div>
+      <div>
+        <label for="type"></label>
+        <select name="type">
+          <% result.forEach((item)=>{%>
+          <option value="<%=item.id %>"><%=item.type %></option>
+          <% }) %>
+        </select>
+      </div>
+      <button>add</button>
+    </form>
+  </body>
+</html>
